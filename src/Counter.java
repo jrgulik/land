@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Counter {
 
@@ -45,8 +47,8 @@ public class Counter {
         }
 
         viableLandSizes.removeIf(integer -> integer == 0);
-        viableLandSizes.sort(Collections.reverseOrder());
-        System.out.println(viableLandSizes);
+        viableLandSizes.sort(Comparator.naturalOrder());
+        System.out.println(viableLandSizes.stream().map(Object::toString).collect(Collectors.joining(" ")));
     }
 
     private static int traverseMap(int i, int j, int currentCount) {
